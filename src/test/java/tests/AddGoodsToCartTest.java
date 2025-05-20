@@ -4,6 +4,7 @@ import com.google.j2objc.annotations.Property;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
 
+import static enums.DepartmentNaming.PRODUCTS;
 import static org.testng.Assert.*;
 import static user.UserFactory.withAdminPermission;
 
@@ -20,12 +21,17 @@ public class AddGoodsToCartTest extends BaseTest {
     public void AddToCardTest() throws InterruptedException {
         loginPage.open();
         loginPage.login(withAdminPermission());
+        assertTrue(productsPage.titleIsDisplayed());
+        assertEquals(productsPage.getTitle(), PRODUCTS.getDisplayName());
+
         Thread.sleep(2000);
         productsPage.addToCard(0);
+        productsPage.addToCard(1);
         productsPage.addToCard(2);
-        productsPage.addToCard(3);
         productsPage.openCard();
         assertEquals(cartPage.getProductsNames().size(), 3);
+        // assertTrue(cartPage.getProductsNames().contains("Sauce Labs Backpack"));
+        // assertFalse(cartPage.getProductsNames().isEmpty());
     }
 }
 

@@ -1,11 +1,13 @@
 package tests;
 
 import com.google.j2objc.annotations.Property;
+import enums.DepartmentNaming;
 import io.qameta.allure.*;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import user.UserFactory;
 
+import static enums.DepartmentNaming.PRODUCTS;
 import static org.testng.Assert.*;
 
 public class LoginTest extends BaseTest {
@@ -23,7 +25,7 @@ public class LoginTest extends BaseTest {
         loginPage.open();
         loginPage.login(UserFactory.withAdminPermission());
         assertTrue(productsPage.titleIsDisplayed());
-        assertEquals(productsPage.getTitle(), "Products");
+        assertEquals(productsPage.getTitle(), PRODUCTS.getDisplayName());
     }
 
 
