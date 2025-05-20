@@ -5,11 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class ProductsPage extends BasePage{
+public class ProductsPage extends BasePage {
     private final By title = By.xpath("//*[@class='title']");
     private final By title2 = By.xpath("//*[text()='Products']");
-    private static final String ADD_TO_CART_BUTTON_PATTERN
-            = "//div[text() = '%s']//ancestor::div[@class='inventory_item']//button";
+    private static final String ADD_TO_CART_BUTTON_PATTERN = "//div[text() = '%s']//ancestor::div[@class='inventory_item']//button";
     private final By ADD_TO_CART_TEXT = By.xpath("//*[text()='Add to cart']");
     private final By SHOPPING_CART_LINC = By.xpath("//*[@data-test='shopping-cart-link']");
 

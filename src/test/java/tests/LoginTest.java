@@ -1,10 +1,13 @@
 package tests;
+
 import com.google.j2objc.annotations.Property;
 import io.qameta.allure.*;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import user.UserFactory;
+
 import static org.testng.Assert.*;
+
 public class LoginTest extends BaseTest {
 
     @Epic("Модуль логина Интернет-магазина")
@@ -13,8 +16,8 @@ public class LoginTest extends BaseTest {
     @Severity(SeverityLevel.BLOCKER)
     @Property("Приоритетность исправления")
     @Owner("Marina Bushmakina, marina@bushmakina.ru")
-    @TmsLink("Saucedemo") //"Test Management System"
-    @Issue("1") //"Ссылка на баг"
+    @TmsLink("Saucedemo")
+    @Issue("1")
     @Test(description = "проверка верной авторизации")
     public void correctLogin() {
         loginPage.open();
@@ -26,7 +29,7 @@ public class LoginTest extends BaseTest {
 
     @DataProvider(name = "incorrectLoginDate")
     public Object[][] loginData() {
-        return new Object[][] {
+        return new Object[][]{
                 {"locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out."},
                 {"", "secret_sauce", "Epic sadface: Username is required"},
                 {"standard_user", "123", "Epic sadface: Username and password do not match any user in this service"}
@@ -36,7 +39,7 @@ public class LoginTest extends BaseTest {
     @Epic("Модуль логина Интернет-магазина")
     @Feature("Юридические лица")
     @Story("QQQ")
-    @Severity(SeverityLevel.BLOCKER) //"Влияние на функционал"
+    @Severity(SeverityLevel.BLOCKER)
     @Property("Приоритетность исправления")
     @Owner("Marina Bushmakina, marina@bushmakina.ru")
     @TmsLink("Saucedemo")

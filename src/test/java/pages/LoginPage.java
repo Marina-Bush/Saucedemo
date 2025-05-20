@@ -42,7 +42,6 @@ public class LoginPage extends BasePage {
     public String getErrorMsg() {
         return driver.findElement(errorSing).getText();
     }
-
 }
 
 

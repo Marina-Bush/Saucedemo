@@ -1,4 +1,5 @@
 package tests;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +13,7 @@ import pages.LoginPage;
 import pages.ProductsPage;
 import utils.PropertyReader;
 import utils.TestListener;
+
 import java.util.concurrent.TimeUnit;
 
 @Listeners(TestListener.class)
@@ -27,14 +29,14 @@ public class BaseTest {
     @BeforeMethod
     @Step("1")
     public void setup(@Optional("chrome") String browser, ITestContext context) {
-        if(browser.equalsIgnoreCase("chrome")) {
+        if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("start-maximized");
             options.addArguments("--guest");
             options.addArguments("headless");
             driver = new ChromeDriver(options);
-        } else if(browser.equalsIgnoreCase("edge")) {
+        } else if (browser.equalsIgnoreCase("edge")) {
             WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
         }
