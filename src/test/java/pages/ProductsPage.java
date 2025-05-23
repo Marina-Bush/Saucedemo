@@ -32,8 +32,9 @@ public class ProductsPage extends BasePage {
     }
 
     @Step("Добавление товара в корзину")
-    public void addToCard(int index) {
+    public ProductsPage addToCard(int index) {
         driver.findElements(ADD_TO_CART_TEXT).get(index).click();
+        return this;
     }
 
     @Step("Ожидание прогрузки карточек товаров")
@@ -42,8 +43,9 @@ public class ProductsPage extends BasePage {
     }
 
     @Step("Открытие корзины")
-    public void openCard() {
+    public ProductsPage openCard() {
         driver.findElement(SHOPPING_CART_LINC).click();
+        return this;
     }
 }
 
