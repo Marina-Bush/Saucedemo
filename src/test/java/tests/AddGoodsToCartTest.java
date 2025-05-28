@@ -33,8 +33,6 @@ public class AddGoodsToCartTest extends BaseTest {
         productsPage
                 .openCard();
         assertEquals(cartPage.getProductsNames().size(), 3);
-        // assertTrue(cartPage.getProductsNames().contains("Sauce Labs Backpack"));
-        // assertFalse(cartPage.getProductsNames().isEmpty());
     }
 }
 
